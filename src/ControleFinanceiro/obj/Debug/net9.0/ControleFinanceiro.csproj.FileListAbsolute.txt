@@ -1,0 +1,15 @@
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\bin\Debug\net9.0\ControleFinanceiro.exe
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\bin\Debug\net9.0\ControleFinanceiro.deps.json
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\bin\Debug\net9.0\ControleFinanceiro.runtimeconfig.json
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\bin\Debug\net9.0\ControleFinanceiro.dll
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\bin\Debug\net9.0\ControleFinanceiro.pdb
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.AssemblyInfoInputs.cache
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.AssemblyInfo.cs
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.csproj.CoreCompileInputs.cache
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.sourcelink.json
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.dll
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\refint\ControleFinanceiro.dll
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.pdb
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ControleFinanceiro.genruntimeconfig.cache
+C:\Users\positivo11\Downloads\Projeto\Controle-Financeiro-Pessoal\src\ControleFinanceiro\obj\Debug\net9.0\ref\ControleFinanceiro.dll
