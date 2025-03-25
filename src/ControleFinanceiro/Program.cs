@@ -4,6 +4,7 @@ class Program
 {
     static void Main()
     {
-        Console.WriteLine("Olá, Controle Financeiro Pessoal!");
+        Console.WriteLine("Olá, Mundo!");
+        
     }
 }
