@@ -1,21 +1,5 @@
 using System;
 
-/* 2. Classe FaturaCartao
-
-Responsabilidade: Registra compras feitas no cartão de crédito.
-
-Propriedades:
-
-Id: Identificador único da fatura.
-
-NomeCartao: Nome do cartão utilizado.
-
-Valor: Valor da compra feita no cartão.
-
-Parcelas: Número total de parcelas.
-
-DataCompra: Data da compra. */
-
 namespace ControleFinanceiro.Models{
 
     public class Fatura{
