@@ -10,7 +10,7 @@ namespace ControleFinanceiro.Repositories
         public void AdicionarFatura(Fatura fatura){
             _faturas.Add(fatura);
         }
-        public Lista<Fatura> ListarFaturas(){
+        public List<Fatura> ListarFaturas(){
             return _faturas;
         }
         public Fatura BuscarPorId(int id){
