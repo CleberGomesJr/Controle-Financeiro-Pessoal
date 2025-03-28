@@ -4,8 +4,7 @@ using System.Collections.Generic;
 
 namespace ControleFinanceiro.Services
 {
-    public class ReceitaService
-    {
+    public class ReceitaService    {
         private readonly ReceitaRepository _receitaRepository;
 
         public ReceitaService(){
