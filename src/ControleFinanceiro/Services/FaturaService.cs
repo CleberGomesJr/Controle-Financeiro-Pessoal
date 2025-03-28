@@ -13,6 +13,8 @@ namespace ControleFinanceiro.Services{
         public void AdicionarFatura(string nome, decimal valor, int parcelas){
             if (valor <= 0)
                 throw new ArgumentException("O valor da fatura deve ser positivo. ");
+            if (parcelas <= 0)
+                throw new ArgumentException("O número de parcelas deve ser maior que 0.");
             var fatura = new Fatura(nome, valor, parcelas);
             _faturaRepository.AdicionarFatura(fatura);
         }
