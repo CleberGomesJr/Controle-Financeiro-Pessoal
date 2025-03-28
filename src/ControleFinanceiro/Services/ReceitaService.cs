@@ -4,17 +4,14 @@ using System.Collections.Generic;
 
 namespace ControleFinanceiro.Services
 {
-    public class ReceitaService
-    {
+    public class ReceitaService    {
         private readonly ReceitaRepository _receitaRepository;
 
-        public ReceitaService()
-        {
+        public ReceitaService(){
             _receitaRepository = new ReceitaRepository();
         }
 
-        public void AdicionarReceita(string descricao, decimal valor, string categoria)
-        {
+        public void AdicionarReceita(string descricao, decimal valor, string categoria){
             if (valor <= 0)
                 throw new ArgumentException("O valor da receita deve ser positivo.");
 
@@ -22,8 +19,7 @@ namespace ControleFinanceiro.Services
             _receitaRepository.AdicionarReceita(receita);
         }
 
-        public List<Receita> ListarReceitas()
-        {
+        public List<Receita> ListarReceitas(){
             return _receitaRepository.ListarReceitas();
         }
     }
