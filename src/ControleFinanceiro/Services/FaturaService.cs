@@ -1,5 +1,6 @@
 using System;
 using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
 
 namespace ControleFinanceiro.Services{
