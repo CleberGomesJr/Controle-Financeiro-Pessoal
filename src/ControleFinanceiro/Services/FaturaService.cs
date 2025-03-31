@@ -1,5 +1,6 @@
 using System;
 using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
 
 namespace ControleFinanceiro.Services{
@@ -21,6 +22,11 @@ namespace ControleFinanceiro.Services{
 
         public List<Fatura> ListarFaturas(){
             return _faturaRepository.ListarFaturas();
+        }
+
+        public void RemoverFatura(int id)
+        {
+            _faturaRepository.RemoverFatura(id);
         }
     }
 }
