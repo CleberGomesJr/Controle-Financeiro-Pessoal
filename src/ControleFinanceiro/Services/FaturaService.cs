@@ -23,5 +23,10 @@ namespace ControleFinanceiro.Services{
         public List<Fatura> ListarFaturas(){
             return _faturaRepository.ListarFaturas();
         }
+
+        public void RemoverFatura(int id)
+        {
+            _faturaRepository.RemoverFatura(id);
+        }
     }
 }

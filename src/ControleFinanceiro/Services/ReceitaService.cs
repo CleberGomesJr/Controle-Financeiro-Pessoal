@@ -22,5 +22,9 @@ namespace ControleFinanceiro.Services
         public List<Receita> ListarReceitas(){
             return _receitaRepository.ListarReceitas();
         }
+        public void RemoverReceita(int id)
+        {
+            _receitaRepository.RemoverReceita(id);
+        }
     }
 }
