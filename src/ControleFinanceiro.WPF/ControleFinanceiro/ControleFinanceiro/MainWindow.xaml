@@ -1,0 +1,46 @@
+﻿<Window x:Class="ControleFinanceiroWPF.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="Controle Financeiro" Height="450" Width="800"
+        Background="#F0F0F0">
+    
+    <Grid Margin="10">
+        <!-- Definição de Linhas e Colunas -->
+        <Grid.RowDefinitions>
+            <RowDefinition Height="Auto"/> <!-- Cabeçalho -->
+            <RowDefinition Height="Auto"/> <!-- Informações financeiras -->
+            <RowDefinition Height="*"/>    <!-- Gráficos -->
+        </Grid.RowDefinitions>
+
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="Auto"/> <!-- Espaço para o título -->
+            <ColumnDefinition Width="*"/>   <!-- Espaço para os dados -->
+        </Grid.ColumnDefinitions>
+
+        <!-- Cabeçalho -->
+        <TextBlock Grid.Row="0" Grid.Column="0" Text="Olá, Usuário" 
+                   FontSize="24" FontWeight="Bold" Foreground="DarkBlue"/>
+
+        <!-- Informações financeiras -->
+        <StackPanel Grid.Row="1" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right" Margin="10">
+            <StackPanel Margin="10">
+                <TextBlock Text="Receitas" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="{Binding TotalReceitas}" FontSize="16" Foreground="Green"/>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Despesas" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="{Binding TotalDespesas}" FontSize="16" Foreground="Red"/>
+            </StackPanel>
+            <StackPanel Margin="10">
+                <TextBlock Text="Investimentos" FontSize="14" FontWeight="Bold"/>
+                <TextBlock Text="{Binding TotalInvestimentos}" FontSize="16" Foreground="Blue"/>
+            </StackPanel>
+        </StackPanel>
+
+        <!-- Área de gráficos -->
+        <Border Grid.Row="2" Grid.Column="0" Grid.ColumnSpan="2" Background="White" CornerRadius="5" Padding="10">
+            <TextBlock Text="Área de gráficos (Em breve)" HorizontalAlignment="Center" VerticalAlignment="Center"/>
+        </Border>
+
+    </Grid>
+</Window>
