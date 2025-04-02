@@ -15,7 +15,7 @@ namespace ControleFinanceiroWPF
     {
         public decimal TotalReceitas { get; set; } = 5000m;
         public decimal TotalDespesas { get; set; } = 2000m;
-        public decimal TotalInvestimentos { get; set; } = 1500m;
+        public decimal TotalInvestimentos { get; set; } = 7500m;
         public MainWindow()
         {
             InitializeComponent();
