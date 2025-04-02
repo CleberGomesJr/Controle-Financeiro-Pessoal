@@ -8,7 +8,8 @@
     "net9.0": []
   },
   "packageFolders": {
-    "C:\\Users\\positivo11\\.nuget\\packages\\": {}
+    "C:\\Users\\positivo11\\.nuget\\packages\\": {},
+    "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages": {}
   },
   "project": {
     "version": "1.0.0",
@@ -19,13 +20,19 @@
       "packagesPath": "C:\\Users\\positivo11\\.nuget\\packages\\",
       "outputPath": "C:\\Users\\positivo11\\Downloads\\Projeto\\Controle-Financeiro-Pessoal\\src\\ControleFinanceiro\\obj\\",
       "projectStyle": "PackageReference",
+      "fallbackFolders": [
+        "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+      ],
       "configFilePaths": [
-        "C:\\Users\\positivo11\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\positivo11\\AppData\\Roaming\\NuGet\\NuGet.Config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
+        "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
       ],
       "originalTargetFrameworks": [
         "net9.0"
       ],
       "sources": {
+        "C:\\Program Files (x86)\\Microsoft SDKs\\NuGetPackages\\": {},
         "https://api.nuget.org/v3/index.json": {}
       },
       "frameworks": {
