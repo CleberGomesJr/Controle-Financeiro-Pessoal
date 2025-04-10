@@ -1,0 +1,16 @@
+[
+  {
+    "Id": 1,
+    "Descricao": "teste",
+    "Valor": 200,
+    "Categoria": "teste",
+    "Data": "2025-04-10T00:00:00-03:00"
+  },
+  {
+    "Id": 2,
+    "Descricao": "Salario",
+    "Valor": 2000,
+    "Categoria": "Teste",
+    "Data": "2025-04-10T00:00:00-03:00"
+  }
+]

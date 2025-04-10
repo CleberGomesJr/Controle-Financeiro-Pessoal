@@ -1,32 +1,37 @@
-using System;
+using ControleFinanceiro.Data;
 using ControleFinanceiro.Models;
-using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
 
-namespace ControleFinanceiro.Services{
-    public class FaturaService{
-        private readonly FaturaRepository _faturaRepository;
+namespace ControleFinanceiro.Services
+{
+    public class FaturaService
+    {
+        private List<Fatura> _faturas;
 
-        public FaturaService(){
-            _faturaRepository = new FaturaRepository();
-        }
-
-        public void AdicionarFatura(string nome, decimal valor, int parcelas){
-            if (valor <= 0)
-                throw new ArgumentException("O valor da fatura deve ser positivo. ");
-            if (parcelas <= 0)
-                throw new ArgumentException("O número de parcelas deve ser maior que 0.");
-            var fatura = new Fatura(nome, valor, parcelas);
-            _faturaRepository.AdicionarFatura(fatura);
-        }
-
-        public List<Fatura> ListarFaturas(){
-            return _faturaRepository.ListarFaturas();
-        }
-
-        public void RemoverFatura(int id)
+        public FaturaService()
         {
-            _faturaRepository.RemoverFatura(id);
+            _faturas = DataStorage.CarregarFaturas();
+        }
+
+        public void AdicionarFatura(string nome, decimal valor, int parcelas)
+        {
+            var fatura = new Fatura(nome, valor, parcelas);
+            _faturas.Add(fatura);
+            DataStorage.SalvarFaturas(_faturas);
+        }
+
+        public List<Fatura> ListarFaturas()
+        {
+            return _faturas;
+        }
+
+        public void RemoverFatura(int index)
+        {
+            if (index >= 0 && index < _faturas.Count)
+            {
+                _faturas.RemoveAt(index);
+                DataStorage.SalvarFaturas(_faturas);
+            }
         }
     }
 }
