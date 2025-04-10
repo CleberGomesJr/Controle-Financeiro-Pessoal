@@ -24,5 +24,14 @@ namespace ControleFinanceiro.Services
         {
             return _faturas;
         }
+
+        public void RemoverFatura(int index)
+        {
+            if (index >= 0 && index < _faturas.Count)
+            {
+                _faturas.RemoveAt(index);
+                DataStorage.SalvarFaturas(_faturas);
+            }
+        }
     }
 }

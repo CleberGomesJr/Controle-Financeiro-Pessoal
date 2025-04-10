@@ -24,5 +24,13 @@ namespace ControleFinanceiro.Services
         {
             return _receitas;
         }
+        public void RemoverReceita(int index)
+        {
+            if (index >= 0 && index < _receitas.Count)
+            {
+                _receitas.RemoveAt(index);
+                DataStorage.SalvarReceitas(_receitas);
+            }
+        }
     }
 }

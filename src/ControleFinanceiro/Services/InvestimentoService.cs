@@ -24,5 +24,13 @@ namespace ControleFinanceiro.Services
         {
             return _investimentos;
         }
+        public void RemoverInvestimento(int index)
+        {
+            if (index >= 0 && index < _investimentos.Count)
+            {
+                _investimentos.RemoveAt(index);
+                DataStorage.SalvarInvestimentos(_investimentos);
+            }
+        }
     }
 }
