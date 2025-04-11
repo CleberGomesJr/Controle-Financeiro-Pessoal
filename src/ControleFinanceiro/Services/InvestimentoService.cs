@@ -32,5 +32,7 @@ namespace ControleFinanceiro.Services
                 DataStorage.SalvarInvestimentos(_investimentos);
             }
         }
+        
+
     }
 }

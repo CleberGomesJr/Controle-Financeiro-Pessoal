@@ -9,6 +9,8 @@ namespace ControleFinanceiro.Models{
         public decimal Valor{get;}
         public int Parcelas{get;set;}
         public DateTime Data{get;set;}
+        public decimal ValorTotal => Valor * Parcelas;
+
 
         public Fatura(string nome, decimal valor, int parcelas){
             if (valor <= 0 || parcelas <= 0)

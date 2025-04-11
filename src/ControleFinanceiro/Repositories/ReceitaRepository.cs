@@ -1,28 +1,48 @@
 using ControleFinanceiro.Models;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json;
 
 namespace ControleFinanceiro.Repositories
 {
-    public class ReceitaRepository{
-        private static List<Receita> _receitas = new List<Receita>();
+    public class ReceitaRepository
+    {
+        private readonly string _caminhoArquivo = "receitas.json";
 
-        public void AdicionarReceita(Receita receita){
-            _receitas.Add(receita);
+        private List<T> Carregar<T>(string caminho)
+        {
+            if (!File.Exists(caminho)) return new List<T>();
+
+            var json = File.ReadAllText(caminho);
+            return JsonSerializer.Deserialize<List<T>>(json) ?? new List<T>();
         }
 
-        public List<Receita> ListarReceitas(){
-            return _receitas;
+        private void Salvar(List<Receita> receitas)
+        {
+            var json = JsonSerializer.Serialize(receitas);
+            File.WriteAllText(_caminhoArquivo, json);
         }
 
-        public Receita BuscarPorId(int id){
-            return _receitas.FirstOrDefault(r => r.Id == id);
+        public List<Receita> ObterTodas()
+        {
+            return Carregar<Receita>(_caminhoArquivo);
         }
 
-        public void RemoverReceita(int id){
-            var receita = BuscarPorId(id);
-            if (receita != null){
-                _receitas.Remove(receita);
+        public void AdicionarReceita(Receita receita)
+        {
+            var receitas = ObterTodas();
+            receitas.Add(receita);
+            Salvar(receitas);
+        }
+
+        public void RemoverReceita(int id)
+        {
+            var receitas = ObterTodas();
+            var receita = receitas.FirstOrDefault(r => r.Id == id);
+            if (receita != null)
+            {
+                receitas.Remove(receita);
+                Salvar(receitas);
             }
         }
     }
