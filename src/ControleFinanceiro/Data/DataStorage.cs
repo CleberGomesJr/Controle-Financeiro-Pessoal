@@ -72,7 +72,7 @@ namespace ControleFinanceiro.Data
         {
             try
             {
-                Directory.CreateDirectory(Path.GetDirectoryName(caminho)!); // Cria a pasta se não existir
+                Directory.CreateDirectory(Path.GetDirectoryName(caminho)!); 
                 string json = JsonSerializer.Serialize(dados, new JsonSerializerOptions { WriteIndented = true });
                 File.WriteAllText(caminho, json);
             }

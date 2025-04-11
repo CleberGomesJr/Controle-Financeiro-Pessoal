@@ -12,7 +12,7 @@ namespace ControleFinanceiro.Services
         {
             _faturas = DataStorage.CarregarFaturas();
         }
-
+        
         public void AdicionarFatura(string nome, decimal valor, int parcelas)
         {
             var fatura = new Fatura(nome, valor, parcelas);

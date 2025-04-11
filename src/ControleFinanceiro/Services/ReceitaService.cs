@@ -32,5 +32,7 @@ namespace ControleFinanceiro.Services
                 DataStorage.SalvarReceitas(_receitas);
             }
         }
+        
+
     }
 }

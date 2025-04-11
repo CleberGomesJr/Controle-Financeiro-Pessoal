@@ -1,25 +1,27 @@
-﻿using System.Text;
-using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
+﻿using System.Windows;
+using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
+using ControleFinanceiro.Services;
 
-namespace ControleFinanceiroWPF
+namespace ControleFinanceiro
 {
     public partial class MainWindow : Window
     {
-        public decimal TotalReceitas { get; set; } = 5000m;
-        public decimal TotalDespesas { get; set; } = 2000m;
-        public decimal TotalInvestimentos { get; set; } = 7500m;
+        public ResumoFinanceiro Resumo { get; set; }
+
         public MainWindow()
         {
             InitializeComponent();
-            DataContext = this; // Liga os dados à interface
+
+            var receitaRepo = new ReceitaRepository("Data/receitas.json");
+            var faturaRepo = new FaturaRepository("Data/faturas.json");
+            var investimentoRepo = new InvestimentoRepository("Data/investimentos.json");
+
+            // Gera o resumo real com base nos dados dos arquivos
+            var resumoService = new ResumoFinanceiroService(receitaRepo, faturaRepo, investimentoRepo);
+            Resumo = resumoService.GerarResumo();
+
+            DataContext = Resumo;
         }
     }
 }
