@@ -1,37 +1,41 @@
-using ControleFinanceiro.Data;
 using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleFinanceiro.Services
 {
     public class FaturaService
     {
-        private List<Fatura> _faturas;
+        private FaturaRepository _faturaRepository = new FaturaRepository();
 
-        public FaturaService()
-        {
-            _faturas = DataStorage.CarregarFaturas();
-        }
-        
         public void AdicionarFatura(string nome, decimal valor, int parcelas)
         {
-            var fatura = new Fatura(nome, valor, parcelas);
-            _faturas.Add(fatura);
-            DataStorage.SalvarFaturas(_faturas);
+            var fatura = new Fatura
+            {
+                Id = GerarNovoId(),
+                Nome = nome,
+                Valor = valor,
+                Parcelas = parcelas
+            };
+
+            _faturaRepository.AdicionarFatura(fatura);
         }
 
         public List<Fatura> ListarFaturas()
         {
-            return _faturas;
+            return _faturaRepository.ObterTodas();
         }
 
-        public void RemoverFatura(int index)
+        public void RemoverFatura(int id)
         {
-            if (index >= 0 && index < _faturas.Count)
-            {
-                _faturas.RemoveAt(index);
-                DataStorage.SalvarFaturas(_faturas);
-            }
+            _faturaRepository.RemoverFatura(id);
+        }
+
+        private int GerarNovoId()
+        {
+            var faturas = _faturaRepository.ObterTodas();
+            return faturas.Any() ? faturas.Max(f => f.Id) + 1 : 1;
         }
     }
 }

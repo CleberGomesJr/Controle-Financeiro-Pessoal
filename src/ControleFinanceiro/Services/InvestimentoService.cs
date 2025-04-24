@@ -1,38 +1,40 @@
-using ControleFinanceiro.Data;
 using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleFinanceiro.Services
 {
     public class InvestimentoService
     {
-        private List<Investimento> _investimentos;
-
-        public InvestimentoService()
-        {
-            _investimentos = DataStorage.CarregarInvestimentos();
-        }
+        private InvestimentoRepository _investimentoRepository = new InvestimentoRepository();
 
         public void AdicionarInvestimento(string nomeAtivo, decimal valor)
         {
-            var investimento = new Investimento(nomeAtivo, valor);
-            _investimentos.Add(investimento);
-            DataStorage.SalvarInvestimentos(_investimentos);
+            var investimento = new Investimento
+            {
+                Id = GerarNovoId(),
+                NomeAtivo = nomeAtivo,
+                Valor = valor
+            };
+
+            _investimentoRepository.AdicionarInvestimento(investimento);
         }
 
         public List<Investimento> ListarInvestimentos()
         {
-            return _investimentos;
+            return _investimentoRepository.ObterTodos();
         }
-        public void RemoverInvestimento(int index)
-        {
-            if (index >= 0 && index < _investimentos.Count)
-            {
-                _investimentos.RemoveAt(index);
-                DataStorage.SalvarInvestimentos(_investimentos);
-            }
-        }
-        
 
+        public void RemoverInvestimento(int id)
+        {
+            _investimentoRepository.RemoverInvestimento(id);
+        }
+
+        private int GerarNovoId()
+        {
+            var investimentos = _investimentoRepository.ObterTodos();
+            return investimentos.Any() ? investimentos.Max(i => i.Id) + 1 : 1;
+        }
     }
 }
