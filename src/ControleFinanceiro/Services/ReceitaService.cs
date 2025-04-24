@@ -1,38 +1,41 @@
-using ControleFinanceiro.Data;
 using ControleFinanceiro.Models;
+using ControleFinanceiro.Repositories;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace ControleFinanceiro.Services
 {
     public class ReceitaService
     {
-        private List<Receita> _receitas;
-
-        public ReceitaService()
-        {
-            _receitas = DataStorage.CarregarReceitas();
-        }
+        private ReceitaRepository _receitaRepository = new ReceitaRepository();
 
         public void AdicionarReceita(string descricao, decimal valor, string categoria)
         {
-            var receita = new Receita(descricao, valor, categoria);
-            _receitas.Add(receita);
-            DataStorage.SalvarReceitas(_receitas);
+            var receita = new Receita
+            {
+                Id = GerarNovoId(),
+                Descricao = descricao,
+                Valor = valor,
+                Categoria = categoria
+            };
+
+            _receitaRepository.AdicionarReceita(receita);
         }
 
         public List<Receita> ListarReceitas()
         {
-            return _receitas;
+            return _receitaRepository.ObterTodas();
         }
-        public void RemoverReceita(int index)
-        {
-            if (index >= 0 && index < _receitas.Count)
-            {
-                _receitas.RemoveAt(index);
-                DataStorage.SalvarReceitas(_receitas);
-            }
-        }
-        
 
+        public void RemoverReceita(int id)
+        {
+            _receitaRepository.RemoverReceita(id);
+        }
+
+        private int GerarNovoId()
+        {
+            var receitas = _receitaRepository.ObterTodas();
+            return receitas.Any() ? receitas.Max(r => r.Id) + 1 : 1;
+        }
     }
 }

@@ -1,6 +1,5 @@
 using ControleFinanceiro.Models;
 using ControleFinanceiro.Repositories;
-using System.Linq;
 
 namespace ControleFinanceiro.Services
 {
@@ -8,28 +7,25 @@ namespace ControleFinanceiro.Services
     {
         private ReceitaRepository _receitaRepo;
         private FaturaRepository _faturaRepo;
-        private InvestimentoRepository _investRepo;
+        private InvestimentoRepository _investimentoRepo;
 
-        public ResumoFinanceiroService(
-            ReceitaRepository receitaRepo,
-            FaturaRepository faturaRepo,
-            InvestimentoRepository investRepo)
+        public ResumoFinanceiroService(ReceitaRepository receitaRepo, FaturaRepository faturaRepo, InvestimentoRepository investimentoRepo)
         {
             _receitaRepo = receitaRepo;
             _faturaRepo = faturaRepo;
-            _investRepo = investRepo;
+            _investimentoRepo = investimentoRepo;
         }
 
         public ResumoFinanceiro GerarResumo()
         {
-            var totalReceitas = _receitaRepo.ObterTodas()?.Sum(r => r.Valor) ?? 0;
-            var totalDespesas = _faturaRepo.ObterTodas()?.Sum(f => f.ValorTotal) ?? 0;
-            var totalInvestimentos = _investRepo.ObterTodos()?.Sum(i => i.Valor) ?? 0;
+            var totalReceitas = _receitaRepo.ObterTodas().Sum(r => r.Valor);
+            var totalFaturas = _faturaRepo.ObterTodas().Sum(f => f.Valor);
+            var totalInvestimentos = _investimentoRepo.ObterTodos().Sum(i => i.Valor);
 
             return new ResumoFinanceiro
             {
                 TotalReceitas = totalReceitas,
-                TotalDespesas = totalDespesas,
+                TotalFaturas = totalFaturas,
                 TotalInvestimentos = totalInvestimentos
             };
         }
